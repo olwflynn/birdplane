@@ -17,7 +17,7 @@ def bird_plane_evaluate(image_file):
     img_resized = img.resize((width, height), Image.ANTIALIAS)
     x = img_to_array(img_resized)
     x = x.reshape(1,150,150,3)
-    print 'predicting...'
+    print ('predicting...')
     preds = model.predict_classes(x, verbose=0)
     preds_prob = model.predict_proba(x)
 
