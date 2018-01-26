@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-
+from bird_plane import bird_plane_evaluate
 import json
 app = Flask(__name__)
 
@@ -22,7 +22,7 @@ def signUp():
 
     # validate the received values
     if _name and _email and _password:
-        return json.dumps({'html':'<span>All fields good !!</span>'})
+        return json.dumps(bird_plane_evaluate(_name))
     else:
         return json.dumps({'html':'<span>Enter the required fields</span>'})
 
