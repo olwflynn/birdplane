@@ -10,3 +10,4 @@ gunicorn==19.7.1
 keras
 h5py
 tensorflow
+Pillow
