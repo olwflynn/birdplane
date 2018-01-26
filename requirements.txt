@@ -9,3 +9,4 @@ Werkzeug==0.14.1
 gunicorn==19.7.1
 keras
 h5py
+tensorflow
