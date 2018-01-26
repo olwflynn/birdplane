@@ -28,5 +28,5 @@ def bird_plane_evaluate(image_file):
         else:
             preds_list.append('plane')
 
-    print preds_prob
+    print (preds_prob)
     return ("ITS A %s") % (str(preds_list[0]).upper())
