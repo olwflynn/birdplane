@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request
 from bird_plane import bird_plane_evaluate
-import json
+import json, os
 app = Flask(__name__)
 
 
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/")
 def main():
@@ -26,6 +27,26 @@ def signUp():
     else:
         return json.dumps({'html':'<span>Enter the required fields</span>'})
 
+@app.route("/upload", methods=['POST'])
+def upload():
+    target = os.path.join(APP_ROOT,"templates/images/")
+    print (target)
+
+    if not os.path.isdir(target):
+        os.mkdir(target)
+
+    for file in request.files.getlist("file"):
+        print (file)
+        filename = file.filename
+        destination = "/".join([target,filename])
+        print (destination)
+        print (os.path.join(target,filename))
+        file.save(destination)
+
+        bird_or_plane = bird_plane_evaluate(destination)
+
+
+    return render_template("complete.html", **locals())
 
 
 if __name__ == "__main__":
