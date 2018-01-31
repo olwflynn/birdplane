@@ -7,7 +7,6 @@
 <body>
 <h1>Voila! its a {{ bird_or_plane }}</h1>
 <div id="x"></div>
-<p id="display_image"></p>
 <script>
 
 var img = document.createElement("img");
@@ -23,25 +22,6 @@ img.src = display_image
 var src = document.getElementById("x");
 
 src.appendChild(img);
-
-    <!--var img = new Image();-->
-    <!--var div = document.getElementById('display_image');-->
-<!---->
-    <!--img.onload = function() {-->
-      <!--div.appendChild(img);-->
-    <!--};-->
-<!---->
-    <!--var bird_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Peregrine_Falcon_with_Kill.jpg/220px-Peregrine_Falcon_with_Kill.jpg"-->
-    <!--var jet_url = "https://images-na.ssl-images-amazon.com/images/I/41CnxE1xtnL._US500_.jpg"-->
-    <!--var bird_or_plane = "{{ bird_or_plane }}";-->
-    <!--var display_image;-->
-    <!--if (bird_or_plane = "ITS A BIRD") {-->
-        <!--display_image = bird_url;-->
-    <!--} else {-->
-        <!--display_image = jet_url;-->
-    <!--}-->
-<!---->
-    <!--img.src = "https://en.wikipedia.org/wiki/Peregrine_falcon";-->
 
 </script>
 
