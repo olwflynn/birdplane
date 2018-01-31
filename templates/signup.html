@@ -18,6 +18,24 @@
             });
         });
     });
+    </script>
+<script type=text/javascript>
+function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
 </script>
   <head>
     <title>Python Flask Bucket List App</title>
@@ -31,53 +49,28 @@
   </head>
 
   <body>
-
-    <div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" ><a href="main">Home</a></li>
-            <li role="presentation"><a href="#">Sign In</a></li>
-            <li role="presentation" class="active"><a href="#">Sign Up</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Python Flask App</h3>
-      </div>
-
+      <h1>Image Recognition Model - Is it a Bird or a Plane?!</h1>
       <div class="jumbotron">
-        <h1>Bucket List App</h1>
-        <form class="form-signin">
-        <label for="inputName" class="sr-only">Name</label>
-        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
-
-        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
-      </form>
-      </div>
-
-      <div>
           <head>
               <body>
 
               <form id="upload_form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file" accept="image/*" multiple>
-                <input type="submit" value="submit">
+                <input class="btn btn-primary" type="submit" value="Run the Model">
               </form>
-
+              <form id="form1" runat="server">
+                <input type='file' id="imgInp" />
+                <img id="blah" src="#" alt="your image" />
+              </form>
                 </body>
           </head>
+            <span class="help-block">
+                Select an image file of either a bird or a plane and see if the model can guess what it is!
+            </span>
       </div>
 
 
 
-      <footer class="footer">
-        <p>&copy; Company 2015</p>
-      </footer>
-
-    </div>
 
   </body>
 

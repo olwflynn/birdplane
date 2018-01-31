@@ -8,7 +8,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    return render_template('signup.html')
 
 @app.route('/showSignUp')
 def showSignUp():
